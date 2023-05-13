@@ -4,14 +4,12 @@
     {
         static void Main()
         {
-            string name = "Evtushenko";
-            string famileName = "Valentin";
-            Console.WriteLine(name + " " + famileName);
-            string trueName;
-            string trueFamilyName;
-            trueName = famileName;
-            trueFamilyName = name;
-            Console.WriteLine(trueName + " " + trueFamilyName);
+            int sumPicture = 52;
+            int completedLine;
+            completedLine = sumPicture / 3;
+            int lackPicture;
+            lackPicture = 3 - sumPicture % 3;
+            Console.WriteLine($"У вас {completedLine} заполненых рядов и вам не хватает {lackPicture} до завершение следующего!");
 
         }
     }

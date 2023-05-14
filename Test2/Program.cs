@@ -4,13 +4,13 @@
     {
         static void Main()
         {
-            int sumPicture = 52;
-            int completedLine;
-            completedLine = sumPicture / 3;
-            int lackPicture;
-            lackPicture = 3 - sumPicture % 3;
-            Console.WriteLine($"У вас {completedLine} заполненых рядов и вам не хватает {lackPicture} до завершение следующего!");
-
+            int sumOfImages = 52;
+            int picturesInRow = 3;
+            int fullRange;
+            fullRange = sumOfImages / picturesInRow;
+            int extraPictures;
+            extraPictures = sumOfImages % 3;
+            Console.WriteLine($"У вас {fullRange} заполненых рядов и {extraPictures} у вас лишние!");
         }
     }
 }

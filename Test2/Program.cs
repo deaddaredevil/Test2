@@ -4,13 +4,13 @@
     {
         static void Main()
         {
-            int sumOfImages = 52;
-            int picturesInRow = 3;
-            int fullRange;
-            fullRange = sumOfImages / picturesInRow;
+            int imagesCount = 52;
+            int picturesInRanges = 3;
+            int fullRanges;
+            fullRanges = imagesCount / picturesInRanges;
             int extraPictures;
-            extraPictures = sumOfImages % 3;
-            Console.WriteLine($"У вас {fullRange} заполненых рядов и {extraPictures} у вас лишние!");
+            extraPictures = imagesCount % picturesInRanges;
+            Console.WriteLine($"У вас {fullRanges} заполненых рядов и {extraPictures} у вас лишние!");
         }
     }
 }

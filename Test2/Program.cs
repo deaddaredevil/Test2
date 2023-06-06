@@ -4,16 +4,23 @@
     {
         static void Main()
         {
-            string outputString;
-            int numberOfStringOutput;
-            Console.Write("Введите ваше сообщение: ");
-            outputString = Console.ReadLine();
-            Console.WriteLine("Сколько вы хотите его дублировать? ");
-            numberOfStringOutput = Convert.ToInt32(Console.ReadLine());
-            for(int i = numberOfStringOutput; i > 0; i--)
+            string theFinalWord = "exit";
+            string userImrut; 
+
+            Console.Write("Введите завершающие солово: ");
+            userImrut = Console.ReadLine();
+
+            bool isExit = theFinalWord == userImrut;
+
+            while (isExit == false)
             {
-                Console.WriteLine(outputString);
+                Console.WriteLine("Цикл");
+                if (isExit == true)
+                {
+                    break;
+                }
             }
+            Console.WriteLine("Цикла не будет");
         }
     }
 }

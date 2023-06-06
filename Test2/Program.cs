@@ -4,13 +4,16 @@
     {
         static void Main()
         {
-            int imagesCount = 52;
-            int picturesInRange = 3;
-            int fullRanges;
-            fullRanges = imagesCount / picturesInRange;
-            int extraPictures;
-            extraPictures = imagesCount % picturesInRange;
-            Console.WriteLine($"У вас {fullRanges} заполненых рядов и {extraPictures} у вас лишние!");
+            string outputString;
+            int numberOfStringOutput;
+            Console.Write("Введите ваше сообщение: ");
+            outputString = Console.ReadLine();
+            Console.WriteLine("Сколько вы хотите его дублировать? ");
+            numberOfStringOutput = Convert.ToInt32(Console.ReadLine());
+            for(int i = numberOfStringOutput; i > 0; i--)
+            {
+                Console.WriteLine(outputString);
+            }
         }
     }
 }

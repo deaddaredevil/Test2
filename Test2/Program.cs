@@ -4,18 +4,17 @@
     {
         static void Main()
         {
-            string theFinalWord = "exit";
-            string userInrut;
-            bool isExit = theFinalWord == userInrut;
-
+            string finalWord = "exit";
+            string userInput;
+            Console.Write("Введите завершающие солово: ");
+            userInput = Console.ReadLine();
+            bool isExit = finalWord == userInput;
             while (isExit == false)
             {
-                Console.Write("Введите завершающие солово: ");
-                userInrut = Console.ReadLine();
                 Console.WriteLine("Цикл");
-                if (userInrut == theFinalWord)
-                {
-                    isExit == true;
+                if (userInput == finalWord)
+                {  
+                    isExit = true;
                 }
             }
             Console.WriteLine("Цикла не будет");

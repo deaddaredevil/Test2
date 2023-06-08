@@ -5,20 +5,22 @@
         static void Main()
         {
             string finalWord = "exit";
-            string userInput;
-            Console.Write("Введите завершающие солово: ");
-            userInput = Console.ReadLine();
-            bool isExit = finalWord == userInput;
+            string userInput = default;
+            bool isExit = false;
+
             while (isExit == false)
             {
                 Console.WriteLine("Цикл");
+                Console.Write("Введите завершающие слово:");
+                userInput = Console.ReadLine();
+
                 if (userInput == finalWord)
-                {  
+                {
                     isExit = true;
                 }
             }
+
             Console.WriteLine("Цикла не будет");
-            //при переносе в нутрь цикла все перестает работать. т.к объявление userInput переменной идет внитри цикла, а она составляющая булевой переменной. и как в бесконечном цикле вообще можно ввести контрольное слово?
         }
     }
 }

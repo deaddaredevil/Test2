@@ -7,153 +7,175 @@
             const string ComandConvertRub = "1";
             const string ComandConvertUsd = "2";
             const string ComandConvertEur = "3";
+            const string ComandExit = "0";
 
-            float hasRub;
-            float hasUsd;
-            float hasEur;
-            float rubInUsd = 0.012f, rubInEur = 0.011f, usdInRub = 82.59f, usdInEur = 0.93f, eurInRub = 88.87f, eurInUsd = 1.08f;
-            string userSelection = "";
+            float rublesBalance;
+            float usdBalans;
+            float eurBalans;
+            float rubInUsd = 0.012f;
+            float rubInEur = 0.011f;
+            float usdInRub = 82.59f;
+            float usdInEur = 0.93f;
+            float eurInRub = 88.87f;
+            float eurInUsd = 1.08f;
+            string userInput = "";
             int requestedAmount;
             float enoughMoney;
 
             Console.WriteLine("Добро пожаловать в обменник валют. Укажите количество средств на счете.");
             Console.Write("Сколько у вас рублей: ");
-            hasRub = Convert.ToSingle(Console.ReadLine());
+            rublesBalance = Convert.ToSingle(Console.ReadLine());
             Console.Write("Сколько у вас долларов: ");
-            hasUsd = Convert.ToSingle(Console.ReadLine());
+            usdBalans = Convert.ToSingle(Console.ReadLine());
             Console.Write("Сколько у вас евро: ");
-            hasEur = Convert.ToSingle(Console.ReadLine());
+            eurBalans = Convert.ToSingle(Console.ReadLine());
             Console.Write($"Какую валюту вы хотите поменять:" +
                 $"{ComandConvertRub} - Рубли." +
                 $"{ComandConvertUsd} - Доллары." +
-                $"{ComandConvertEur} - Евро.");
-            userSelection = Console.ReadLine();
+                $"{ComandConvertEur} - Евро." +
+                $"{ComandExit} - Выход.");
+            userInput = Console.ReadLine();
 
-            switch (userSelection)
+            switch (userInput)
             {
                 case ComandConvertRub:
-                    Console.Write("В выбрали рубли, на какую валюту вы хотите поменять: " +
-                        "1 - на доллары." +
-                        "2 - на евро. ");
-                    userSelection = Console.ReadLine();
+                    Console.Write($"В выбрали рубли, на какую валюту вы хотите поменять: " +
+                        $"1 - на доллары." +
+                        $"2 - на евро. " +
+                        $"{ComandExit} - Выход. ");
+                    userInput = Console.ReadLine();
 
-                    if (userSelection == "1")
+                    if (userInput == "1")
                     {
                         Console.WriteLine("сколько валюты вы хотите?");
                         requestedAmount = Convert.ToInt32(Console.ReadLine());
-                        enoughMoney = hasRub - usdInRub * requestedAmount;
+                        enoughMoney = rublesBalance - usdInRub * requestedAmount;
 
                         if (enoughMoney < 0)
                         {
                             Console.WriteLine("У вас недостаточно средств");
                         }
-                        else
+                        else if (enoughMoney >= 0)
                         {
-                            hasUsd += requestedAmount;
-                            hasRub -= usdInRub * requestedAmount;
-                            Console.WriteLine($"Теперь у вас {hasRub} рублей и {hasUsd} долларов.");
+                            usdBalans += requestedAmount;
+                            rublesBalance -= usdInRub * requestedAmount;
+                            Console.WriteLine($"Теперь у вас {rublesBalance} рублей и {usdBalans} долларов.");
                         }
                     }
-                    else if (userSelection == "2")
+                    else if (userInput == "2")
                     {
                         Console.WriteLine("сколько валюты вы хотите?");
                         requestedAmount = Convert.ToInt32(Console.ReadLine());
-                        enoughMoney = hasRub - eurInRub * requestedAmount;
+                        enoughMoney = rublesBalance - eurInRub * requestedAmount;
 
                         if (enoughMoney < 0)
                         {
                             Console.WriteLine("У вас недостаточно средств");
                         }
-                        else
+                        else if (enoughMoney >= 0)
                         {
-                            hasEur += requestedAmount;
-                            hasRub -= eurInRub * requestedAmount;
-                            Console.WriteLine($"Теперь у вас {hasRub} рублей и {hasEur} долларов.");
+                            eurBalans += requestedAmount;
+                            rublesBalance -= eurInRub * requestedAmount;
+                            Console.WriteLine($"Теперь у вас {rublesBalance} рублей и {eurBalans} долларов.");
                         }
                     }
+                    else if (userInput == ComandExit)
+                        Console.WriteLine("Завершение программы!");
                     break;
+
                 case ComandConvertUsd:
-                    Console.Write("В выбрали доллары, на какую валюту вы хотите поменять: " +
-                        "1 - на рубли." +
-                        "2 - на евро. ");
-                    userSelection = Console.ReadLine();
+                    Console.Write($"В выбрали доллары, на какую валюту вы хотите поменять: " +
+                        $"1 - на рубли." +
+                        $"2 - на евро. " +
+                        $"{ComandExit} - выход. ");
+                    userInput = Console.ReadLine();
 
-                    if (userSelection == "1")
+                    if (userInput == "1")
                     {
                         Console.WriteLine("сколько валюты вы хотите?");
                         requestedAmount = Convert.ToInt32(Console.ReadLine());
-                        enoughMoney = hasUsd - rubInUsd * requestedAmount;
+                        enoughMoney = usdBalans - rubInUsd * requestedAmount;
 
                         if (enoughMoney < 0)
                         {
                             Console.WriteLine("У вас недостаточно средств");
                         }
-                        else
+                        else if (enoughMoney >= 0)
                         {
-                            hasRub += requestedAmount;
-                            hasUsd -= rubInUsd * requestedAmount;
-                            Console.WriteLine($"Теперь у вас {hasRub} рублей и {hasUsd} долларов.");
+                            rublesBalance += requestedAmount;
+                            usdBalans -= rubInUsd * requestedAmount;
+                            Console.WriteLine($"Теперь у вас {rublesBalance} рублей и {usdBalans} долларов.");
                         }
                     }
-                    else if (userSelection == "2")
+                    else if (userInput == "2")
                     {
                         Console.WriteLine("сколько валюты вы хотите?");
                         requestedAmount = Convert.ToInt32(Console.ReadLine());
-                        enoughMoney = hasUsd - eurInUsd * requestedAmount;
+                        enoughMoney = usdBalans - eurInUsd * requestedAmount;
 
                         if (enoughMoney < 0)
                         {
                             Console.WriteLine("У вас недостаточно средств");
                         }
-                        else
+                        else if (enoughMoney >= 0)
                         {
-                            hasEur += requestedAmount;
-                            hasUsd -= eurInUsd * requestedAmount;
-                            Console.WriteLine($"Теперь у вас {hasUsd} долларов и {hasEur} евро.");
+                            eurBalans += requestedAmount;
+                            usdBalans -= eurInUsd * requestedAmount;
+                            Console.WriteLine($"Теперь у вас {usdBalans} долларов и {eurBalans} евро.");
                         }
                     }
+                    else if (userInput == ComandExit)
+                        Console.WriteLine("Завершение программы!");
                     break;
+
                 case ComandConvertEur:
-                    Console.Write("В выбрали евро, на какую валюту вы хотите поменять: " +
-                        "1 - на доллары." +
-                        "2 - на рубли. ");
-                    userSelection = Console.ReadLine();
+                    Console.Write($"В выбрали евро, на какую валюту вы хотите поменять: " +
+                        $"1 - на доллары." +
+                        $"2 - на рубли. " +
+                        $"{ComandExit} - Выход.");
+                    userInput = Console.ReadLine();
 
-                    if (userSelection == "1")
+                    if (userInput == "1")
                     {
                         Console.WriteLine("сколько валюты вы хотите?");
                         requestedAmount = Convert.ToInt32(Console.ReadLine());
-                        enoughMoney = hasEur - usdInEur * requestedAmount;
+                        enoughMoney = eurBalans - usdInEur * requestedAmount;
 
                         if (enoughMoney < 0)
                         {
                             Console.WriteLine("У вас недостаточно средств");
                         }
-                        else
+                        else if (enoughMoney >= 0)
                         {
-                            hasUsd += requestedAmount;
-                            hasEur -= usdInEur * requestedAmount;
-                            Console.WriteLine($"Теперь у вас {hasEur} евро и {hasUsd} долларов.");
+                            usdBalans += requestedAmount;
+                            eurBalans -= usdInEur * requestedAmount;
+                            Console.WriteLine($"Теперь у вас {eurBalans} евро и {usdBalans} долларов.");
                         }
                     }
-                    else if (userSelection == "2")
+                    else if (userInput == "2")
                     {
                         Console.WriteLine("сколько валюты вы хотите?");
                         requestedAmount = Convert.ToInt32(Console.ReadLine());
-                        enoughMoney = hasEur - rubInEur * requestedAmount;
+                        enoughMoney = eurBalans - rubInEur * requestedAmount;
 
                         if (enoughMoney < 0)
                         {
                             Console.WriteLine("У вас недостаточно средств");
                         }
-                        else
+                        else if (enoughMoney >= 0)
                         {
-                            hasRub += requestedAmount;
-                            hasEur -= rubInEur * requestedAmount;
-                            Console.WriteLine($"Теперь у вас {hasRub} рублей и {hasEur} евро.");
+                            rublesBalance += requestedAmount;
+                            eurBalans -= rubInEur * requestedAmount;
+                            Console.WriteLine($"Теперь у вас {rublesBalance} рублей и {eurBalans} евро.");
                         }
                     }
+                    else if (userInput == ComandExit)
+                        Console.WriteLine("Завершение программы!");
                     break;
+                case ComandExit:
+                    Console.WriteLine("Завершение операции");
+                    break;
+
                 default:
                     Console.WriteLine("Неизвестная операция");
                     break;

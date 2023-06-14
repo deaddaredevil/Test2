@@ -45,7 +45,6 @@
 
             while (isWork)
             {
-
                 switch (userInput)
                 {
                     case CommandConvertRublesToDollars:
@@ -57,7 +56,7 @@
                         {
                             Console.WriteLine("У вас недостаточно средств");
                         }
-                        else if (enoughMoney >= 0)
+                        else
                         {
                             dollarsBalance += requestedAmount;
                             rublesBalance -= dollarsInRubles * requestedAmount;
@@ -74,7 +73,7 @@
                         {
                             Console.WriteLine("У вас недостаточно средств");
                         }
-                        else if (enoughMoney >= 0)
+                        else
                         {
                             euroBalance += requestedAmount;
                             rublesBalance -= euroInRubles * requestedAmount;
@@ -91,7 +90,7 @@
                         {
                             Console.WriteLine("У вас недостаточно средств");
                         }
-                        else if (enoughMoney >= 0)
+                        else
                         {
                             rublesBalance += requestedAmount;
                             dollarsBalance -= rublesInDollars * requestedAmount;
@@ -108,7 +107,7 @@
                         {
                             Console.WriteLine("У вас недостаточно средств");
                         }
-                        else if (enoughMoney >= 0)
+                        else
                         {
                             euroBalance += requestedAmount;
                             dollarsBalance -= euroInDollars * requestedAmount;
@@ -125,7 +124,7 @@
                         {
                             Console.WriteLine("У вас недостаточно средств");
                         }
-                        else if (enoughMoney >= 0)
+                        else
                         {
                             rublesBalance += requestedAmount;
                             euroBalance -= rublesInEuro * requestedAmount;
@@ -142,7 +141,7 @@
                         {
                             Console.WriteLine("У вас недостаточно средств");
                         }
-                        else if (enoughMoney >= 0)
+                        else
                         {
                             dollarsBalance += requestedAmount;
                             euroBalance -= dollarsInEuro * requestedAmount;
@@ -159,7 +158,8 @@
                         break;
                 }
             }
-            Console.WriteLine("");
+
+            Console.WriteLine("Всего доброго!");
         }
     }
 }

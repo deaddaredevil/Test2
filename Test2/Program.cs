@@ -9,7 +9,7 @@
             const string CommandConvertDollarsToRubles = "3";
             const string CommandConvertDollarsToEuro = "4";
             const string CommandConvertEuroToRubles = "5";
-            const string CommandConvertEuroToDollars = "6";
+            const string CommandConvertEuroToDollars = "7";
             const string CommandExit = "exit";
 
             float rublesBalance;
@@ -41,7 +41,7 @@
                 $"{CommandConvertEuroToRubles} - Евро на рубли" +
                 $"{CommandConvertEuroToDollars} - Евро на доллары" +
                 $"{CommandExit} - Выход.");
-            userInput = Console.ReadLine();
+            userInput = Console.ReadLine(); 
 
             while (isWork)
             {
